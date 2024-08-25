@@ -197,3 +197,41 @@ header {
 .btn-success:hover {
   background-color: #218838;
 }
+
+.congratulations-banner {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.btn-complete {
+  background-color: #0d7a1f;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.btn-complete:hover {
+  background-color: #12a92b;
+}
+
+.btn-secondary {
+  background-color: #e91010;
+  color: #fff;
+  border: 0px;
+  border-radius: 5px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+}
+
+.btn-secondary:hover {
+  background-color: #b40e0e;
+}

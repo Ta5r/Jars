@@ -78,6 +78,11 @@ function App() {
     setJars(updatedJars);
   };
 
+  const completeJar = (index) => {
+    const updatedJars = jars.filter((_, i) => i !== index);
+    setJars(updatedJars);
+  };
+
   const handleAddJarClick = () => {
     setIsModalOpen(true);
   };
@@ -103,7 +108,7 @@ function App() {
       <button className="btn btn-primary mb-3" onClick={handleAddJarClick}>
         Add Jar
       </button>
-      <JarList jars={jars} addMoney={addMoney} deleteJar={deleteJar} />
+      <JarList jars={jars} addMoney={addMoney} deleteJar={deleteJar} completeJar={completeJar} />
       <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
         <JarForm addJar={addJar} />
       </Modal>
