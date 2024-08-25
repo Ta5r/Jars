@@ -5,12 +5,16 @@ import Modal from './Modal';
 
 function App() {
   const [jars, setJars] = useState([]);
+  const [totalAdded, setTotalAdded] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const savedJars = JSON.parse(localStorage.getItem('jars'));
     if (savedJars) {
       setJars(savedJars);
+      // Calculate total amount added from saved jars
+      const total = savedJars.reduce((sum, jar) => sum + jar.currentBalance, 0);
+      setTotalAdded(total);
     }
     if (!savedJars || savedJars.length === 0) {
       setIsModalOpen(true);
@@ -19,6 +23,9 @@ function App() {
 
   useEffect(() => {
     localStorage.setItem('jars', JSON.stringify(jars));
+    // Update total added money whenever jars change
+    const total = jars.reduce((sum, jar) => sum + jar.currentBalance, 0);
+    setTotalAdded(total);
   }, [jars]);
 
   const addJar = (name, targetAmount) => {
@@ -49,7 +56,12 @@ function App() {
 
   return (
     <div className="container">
-      <h1>Jar Saver</h1>
+      <header>
+        <h1>Jar Saver</h1>
+        <div className="total-added">
+          Total Added: ${totalAdded.toFixed(2)}
+        </div>
+      </header>
       <button className="btn btn-primary mb-3" onClick={handleAddJarClick}>
         Add Jar
       </button>

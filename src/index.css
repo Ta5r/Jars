@@ -140,3 +140,16 @@ h1 {
   font-size: 24px;
   cursor: pointer;
 }
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.total-added {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #28a745;
+}
