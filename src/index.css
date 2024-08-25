@@ -33,6 +33,21 @@ h1 {
   position: relative;
 }
 
+
+/* Styles for tablets and iPads */
+@media (max-width: 768px) {
+  .jar-card {
+    width: calc(50% - 20px); /* 2 jars per row */
+  }
+}
+
+/* Styles for mobile devices */
+@media (max-width: 480px) {
+  .jar-card {
+    width: calc(100% - 20px); /* 1 jar per row */
+  }
+}
+
 .jar-body {
   display: flex;
   flex-direction: column;
