@@ -12,7 +12,6 @@ function App() {
     if (savedJars) {
       setJars(savedJars);
     }
-    // Open modal by default if no jars are present
     if (!savedJars || savedJars.length === 0) {
       setIsModalOpen(true);
     }
@@ -25,13 +24,18 @@ function App() {
   const addJar = (name, targetAmount) => {
     const newJar = { name, targetAmount, currentBalance: 0 };
     setJars([...jars, newJar]);
-    setIsModalOpen(false); // Close modal after adding a jar
+    setIsModalOpen(false);
   };
 
   const addMoney = (index, amount) => {
     const updatedJars = jars.map((jar, i) =>
       i === index ? { ...jar, currentBalance: jar.currentBalance + amount } : jar
     );
+    setJars(updatedJars);
+  };
+
+  const deleteJar = (index) => {
+    const updatedJars = jars.filter((_, i) => i !== index);
     setJars(updatedJars);
   };
 
@@ -49,7 +53,7 @@ function App() {
       <button className="btn btn-primary mb-3" onClick={handleAddJarClick}>
         Add Jar
       </button>
-      <JarList jars={jars} addMoney={addMoney} />
+      <JarList jars={jars} addMoney={addMoney} deleteJar={deleteJar} />
       <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
         <JarForm addJar={addJar} />
       </Modal>

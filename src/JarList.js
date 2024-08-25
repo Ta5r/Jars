@@ -5,7 +5,7 @@ import AddMoneyForm from './AddMoneyForm';
 
 ChartJS.register(Title, Tooltip, Legend, ArcElement);
 
-function JarList({ jars, addMoney }) {
+function JarList({ jars, addMoney, deleteJar }) {
   const getChartData = (jar) => ({
     labels: ['Saved', 'Remaining'],
     datasets: [
@@ -29,6 +29,12 @@ function JarList({ jars, addMoney }) {
               <Pie data={getChartData(jar)} options={{ responsive: true, maintainAspectRatio: false }} />
             </div>
             <AddMoneyForm addMoney={addMoney} index={index} />
+            <button 
+              className="btn btn-danger mt-2" 
+              onClick={() => deleteJar(index)}
+            >
+              Delete Jar
+            </button>
             <div className="progress mt-3">
               <div
                 className="progress-bar"
