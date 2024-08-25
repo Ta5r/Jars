@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './JarForm.css'; // Import custom CSS for additional styling
+import './JarForm.css';
 
 function JarForm({ addJar }) {
   const [name, setName] = useState('');
